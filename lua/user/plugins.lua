@@ -73,13 +73,13 @@ return packer.startup(function(use)
   use "MattesGroeger/vim-bookmarks"
   use "lunarvim/vim-solidity"
   use "blackCauldron7/surround.nvim"
+  use "tpope/vim-repeat"
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   use "metakirby5/codi.vim"
-  use {
-    "nyngwang/NeoZoom.lua",
-  }
+  use "nyngwang/NeoZoom.lua"
+  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   use {
 
     "iamcco/markdown-preview.nvim",
@@ -166,6 +166,7 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
+  use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
   use "mfussenegger/nvim-dap"
