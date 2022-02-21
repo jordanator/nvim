@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use { "kyazdani42/nvim-tree.lua", commit = "f183c7f31197ae499c3420341fb8b275636a49b8" }
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
@@ -77,9 +77,10 @@ return packer.startup(function(use)
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
-  use "metakirby5/codi.vim"
+  -- use "metakirby5/codi.vim"
   use "nyngwang/NeoZoom.lua"
-  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  use "SmiteshP/nvim-gps"
+  use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
     "iamcco/markdown-preview.nvim",
@@ -95,10 +96,7 @@ return packer.startup(function(use)
   use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
-  use {"hrsh7th/nvim-cmp",
-    commit = "d93104244c3834fbd8f3dd01da9729920e0b5fe7"
-
-  } -- The completion plugin
+  use { "hrsh7th/nvim-cmp", commit = "d93104244c3834fbd8f3dd01da9729920e0b5fe7" } -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -140,6 +138,7 @@ return packer.startup(function(use)
     cmd = "TroubleToggle",
   }
   use "github/copilot.vim"
+  use "RRethy/vim-illuminate"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
