@@ -47,3 +47,4 @@ require "user.shade-plugin"
 require "user.copilot"
 require "user.gps"
 require "user.illuminate"
+vim.opt.laststatus = 3

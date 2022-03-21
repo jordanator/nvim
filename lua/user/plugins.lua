@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
-  use "br1anchen/nvim-colorizer.lua"
+  use "norcalli/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
   use "folke/zen-mode.nvim"
   use "karb94/neoscroll.nvim"
@@ -93,7 +93,7 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "rose-pine/neovim"
-  use "rebelot/kanagawa.nvim"
+  -- use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "d93104244c3834fbd8f3dd01da9729920e0b5fe7" } -- The completion plugin
@@ -162,7 +162,8 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use {'p00f/nvim-ts-rainbow', commit = 'c6c26c4def0e9cd82f371ba677d6fc9baa0038af'}
+  use {'p00f/nvim-ts-rainbow'}
+  -- use {'christianchiarulli/nvim-ts-rainbow'}
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use "romgrk/nvim-treesitter-context"
