@@ -113,7 +113,10 @@ local mappings = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
   -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+
+-- :lua require'lir.float'.toggle()
   -- ["f"] = {
   --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   --   "Find files",
@@ -140,8 +143,27 @@ local mappings = {
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
   },
 
+  d = {
+    name = "Debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+  },
+
+  -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+  -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+  -- require("dapui").open()
+  -- require("dapui").close()
+  -- require("dapui").toggle()
+
   f = {
-    name = "Fin",
+    name = "Find",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = {
