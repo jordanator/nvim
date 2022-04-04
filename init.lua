@@ -50,3 +50,12 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 vim.opt.laststatus = 3
+
+require("nvim-web-devicons").set_icon {
+  graphql = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Graphql"
+  }
+}

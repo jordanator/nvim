@@ -202,13 +202,3 @@ else
     },
   }
 end
-
-
-require("nvim-web-devicons").set_icon {
-  graphql = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Graphql"
-  }
-}
