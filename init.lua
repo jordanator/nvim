@@ -49,7 +49,6 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 require "user.jabs"
-vim.opt.laststatus = 3
 
 require("nvim-web-devicons").set_icon {
   graphql = {
