@@ -88,7 +88,7 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  use "matbme/JABS.nvim"
+  use "christianchiarulli/JABS.nvim"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -110,6 +110,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
+  use "rcarriga/cmp-dap"
   use {
     "tzachar/cmp-tabnine",
     config = function()
