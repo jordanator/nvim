@@ -48,6 +48,7 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 require "user.jabs"
+require "user.winbar"
 
 require("nvim-web-devicons").set_icon {
   graphql = {
