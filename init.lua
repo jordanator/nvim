@@ -1,4 +1,3 @@
-require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.autocommands"
@@ -48,7 +47,10 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 require "user.jabs"
+require "user.cybu"
 require "user.winbar"
+require "user.options"
+require "user.nvim-webdev-icons"
 
 require("nvim-web-devicons").set_icon {
   graphql = {

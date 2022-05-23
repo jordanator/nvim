@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
   use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
-  use {"christianchiarulli/nvim-gps", branch = "text_hl"}
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
@@ -88,7 +88,17 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  use "christianchiarulli/JABS.nvim"
+  use {
+    "christianchiarulli/JABS.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" }, --optional
+  }
+
+  use {
+    "ghillb/cybu.nvim",
+    branch = "v1.x", -- won't receive breaking changes
+    -- branch = "main", -- timely updates
+    requires = { "kyazdani42/nvim-web-devicons" }, --optional
+  }
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
