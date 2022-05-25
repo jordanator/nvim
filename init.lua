@@ -51,12 +51,3 @@ require "user.cybu"
 require "user.winbar"
 require "user.options"
 require "user.nvim-webdev-icons"
-
-require("nvim-web-devicons").set_icon {
-  graphql = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Graphql"
-  }
-}
