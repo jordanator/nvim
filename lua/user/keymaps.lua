@@ -110,7 +110,7 @@ keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>')
 vim.api.nvim_set_keymap("n", "<CR>", "<cmd>NeoZoomToggle<CR>", { noremap = true, silent = true, nowait = true })
 vim.api.nvim_set_keymap(
   "n",
-  "=",
+  "\\",
   "<cmd>JABSOpen<cr>",
   { noremap = true, silent = true, nowait = true }
 )
