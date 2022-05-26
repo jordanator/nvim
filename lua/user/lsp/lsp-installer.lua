@@ -16,7 +16,8 @@ local servers = {
   "tsserver",
   "pyright",
   "yamlls",
-  "bashls"
+  "bashls",
+  "intelephense"
 }
 
 local settings = {
