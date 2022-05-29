@@ -17,7 +17,16 @@ local servers = {
   "pyright",
   "yamlls",
   "bashls",
-  "intelephense"
+  "intelephense",
+  "awk_ls",
+  "clangd",
+  "cmake",
+  "dockerls",
+  "gopls",
+  "graphql",
+  "rust_analyzer",
+  "tailwindcss",
+  "zk"
 }
 
 local settings = {
