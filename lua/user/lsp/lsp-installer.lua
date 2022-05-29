@@ -19,14 +19,14 @@ local servers = {
   "bashls",
   "intelephense",
   "awk_ls",
-  "clangd",
   "cmake",
   "dockerls",
   "gopls",
   "graphql",
   "rust_analyzer",
   "tailwindcss",
-  "zk"
+  "zk",
+  "clangd",
 }
 
 local settings = {
