@@ -45,9 +45,6 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-  use "tamago324/lir.nvim"
   -- use "tiagovla/scope.nvim"
   -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -56,30 +53,15 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
-  use "folke/which-key.nvim"
-  -- use "unblevable/quick-scope"
   use "christianchiarulli/hop.nvim"
-  use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
-  use "folke/zen-mode.nvim"
-  use "karb94/neoscroll.nvim"
-  use "folke/todo-comments.nvim"
   use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
-  -- use "lunarvim/vim-solidity"
-  use "Mephistophiles/surround.nvim"
-  -- use "tpope/vim-repeat"
-  -- use "Shatur/neovim-session-manager"
-  use "rcarriga/nvim-notify"
-  use "tversteeg/registers.nvim"
-  -- use "metakirby5/codi.vim"
-  -- use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
-  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  -- use "Mephistophiles/surround.nvim"
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
@@ -87,25 +69,30 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  -- use {
-  --   "christianchiarulli/JABS.nvim",
-  --   requires = { "kyazdani42/nvim-web-devicons" }, --optional
-  -- }
 
+  -- UI
+  use { "stevearc/dressing.nvim" }
   use "ghillb/cybu.nvim"
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  use "tversteeg/registers.nvim"
+  use "rcarriga/nvim-notify"
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+  use "tamago324/lir.nvim"
+  use "goolord/alpha-nvim"
+  use "folke/which-key.nvim"
+  use "folke/zen-mode.nvim"
+  use "karb94/neoscroll.nvim"
+  use "folke/todo-comments.nvim"
+  use "andymass/vim-matchup"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  -- use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
-  -- use "hrsh7th/nvim-cmp" -- The completion plugin
-  use {
-    "hrsh7th/nvim-cmp",
-    -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
-  }
+  use { "hrsh7th/nvim-cmp" }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -113,29 +100,11 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  -- use "rcarriga/cmp-dap"
   use {
     "tzachar/cmp-tabnine",
-    config = function()
-      local tabnine = require "cmp_tabnine.config"
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-        run_on_every_keystroke = true,
-        snippet_placeholder = "..",
-        ignored_file_types = { -- default is not to ignore
-          -- uncomment to ignore in lua:
-          -- lua = true
-        },
-      }
-    end,
-
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   }
-
-  -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -144,9 +113,7 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  -- use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
   use "b0o/SchemaStore.nvim"
@@ -160,7 +127,7 @@ return packer.startup(function(use)
     event = { "VimEnter" },
     config = function()
       vim.defer_fn(function()
-        require("user.copilot")
+        require "user.copilot"
       end, 100)
     end,
   }
@@ -173,25 +140,21 @@ return packer.startup(function(use)
   -- Java
   use "mfussenegger/nvim-jdtls"
 
+  -- Rust
+  use "simrat39/rust-tools.nvim"
+  use "Saecki/crates.nvim"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  -- use "nvim-telescope/telescope-ui-select.nvim"
-  -- use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    -- run = ":TSUpdate",
-  }
+  use { "nvim-treesitter/nvim-treesitter" }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use { "p00f/nvim-ts-rainbow" }
-  -- use {'christianchiarulli/nvim-ts-rainbow'}
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  -- use "romgrk/nvim-treesitter-context"
-  -- use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -199,13 +162,32 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
-  -- use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
   -- use "mfussenegger/nvim-dap"
   -- use "theHamsta/nvim-dap-virtual-text"
   -- use "rcarriga/nvim-dap-ui"
   -- use "Pocco81/DAPInstall.nvim"
+
+  -- Plugin Graveyard
+  -- use "romgrk/nvim-treesitter-context"
+  -- use "mizlan/iswap.nvim"
+  -- use {'christianchiarulli/nvim-ts-rainbow'}
+  -- use "nvim-telescope/telescope-ui-select.nvim"
+  -- use "nvim-telescope/telescope-file-browser.nvim"
+  -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
+  -- use { "christianchiarulli/JABS.nvim" }
+  -- use "lunarvim/vim-solidity"
+  -- use "tpope/vim-repeat"
+  -- use "Shatur/neovim-session-manager"
+  -- use "metakirby5/codi.vim"
+  -- use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
+  -- use "rcarriga/cmp-dap"
+  -- use "filipdutescu/renamer.nvim"
+  -- use "https://github.com/rhysd/conflict-marker.vim"
+  -- use "rebelot/kanagawa.nvim"
+  -- use "unblevable/quick-scope"
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
