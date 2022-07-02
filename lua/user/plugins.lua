@@ -54,6 +54,20 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "christianchiarulli/hop.nvim"
+  -- Lua
+  use {
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  }
+  -- Lua
+  use {
+    "abecodes/tabout.nvim",
+    wants = { "nvim-treesitter" }, -- or require if not used so far
+  }
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
@@ -136,6 +150,8 @@ return packer.startup(function(use)
     module = "copilot_cmp",
   }
   use "RRethy/vim-illuminate"
+  use "stevearc/aerial.nvim"
+  use "j-hui/fidget.nvim"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
@@ -148,6 +164,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
+  use "lalitmee/browse.nvim"
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }
