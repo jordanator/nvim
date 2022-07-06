@@ -54,15 +54,9 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "christianchiarulli/hop.nvim"
+  -- use "phaazon/hop.nvim"
   -- Lua
-  use {
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
-  }
+  use "kylechui/nvim-surround"
   -- Lua
   use {
     "abecodes/tabout.nvim",
@@ -83,9 +77,10 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
+  -- use "stevearc/stickybuf.nvim"
 
   -- UI
-  use { "stevearc/dressing.nvim" }
+  use "stevearc/dressing.nvim"
   use "ghillb/cybu.nvim"
   use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use "tversteeg/registers.nvim"
@@ -104,6 +99,7 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "lunarvim/onedarker.nvim"
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" }
@@ -131,10 +127,7 @@ return packer.startup(function(use)
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
   use "b0o/SchemaStore.nvim"
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  }
+  use "folke/trouble.nvim"
   -- use "github/copilot.vim"
   use {
     "zbirenbaum/copilot.lua",
@@ -150,8 +143,10 @@ return packer.startup(function(use)
     module = "copilot_cmp",
   }
   use "RRethy/vim-illuminate"
-  use "stevearc/aerial.nvim"
+  -- use "stevearc/aerial.nvim"
   use "j-hui/fidget.nvim"
+  -- TODO: set this up
+  use "rmagatti/goto-preview"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
@@ -160,6 +155,9 @@ return packer.startup(function(use)
   use "simrat39/rust-tools.nvim"
   use "Saecki/crates.nvim"
 
+  -- Typescript TODO: set this up, also add keybinds to ftplugin
+  use "jose-elias-alvarez/typescript.nvim"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
@@ -167,11 +165,12 @@ return packer.startup(function(use)
   use "lalitmee/browse.nvim"
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter" }
+  use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use { "p00f/nvim-ts-rainbow" }
+  use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
+  use "drybalka/tree-climber.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -205,6 +204,7 @@ return packer.startup(function(use)
   -- use "rebelot/kanagawa.nvim"
   -- use "unblevable/quick-scope"
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "gbprod/cutlass.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
