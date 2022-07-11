@@ -48,7 +48,7 @@ return packer.startup(function(use)
   -- use "tiagovla/scope.nvim"
   -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
+  use "christianchiarulli/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -78,6 +78,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
   -- use "stevearc/stickybuf.nvim"
+  use "rmagatti/auto-session"
 
   -- UI
   use "stevearc/dressing.nvim"
@@ -168,7 +169,7 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  use "drybalka/tree-climber.nvim"
+  -- use "drybalka/tree-climber.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
