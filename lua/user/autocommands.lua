@@ -27,6 +27,21 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "" },
+  callback = function()
+    local buf_ft = vim.bo.filetype
+    if buf_ft == "" or buf_ft == nil then
+      vim.cmd [[
+      nnoremap <silent> <buffer> q :close<CR> 
+      nnoremap <silent> <buffer> <c-j> j<CR> 
+      nnoremap <silent> <buffer> <c-k> k<CR> 
+      set nobuflisted 
+    ]]
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = { "term://*" },
   callback = function()
     vim.cmd "startinsert!"
@@ -73,11 +88,14 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
 })
 
 if vim.fn.has "nvim-0.8" == 1 then
-  vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" }, {
-    callback = function()
-      require("user.winbar").get_winbar()
-    end,
-  })
+  vim.api.nvim_create_autocmd(
+    { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+    {
+      callback = function()
+        require("user.winbar").get_winbar()
+      end,
+    }
+  )
 end
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
