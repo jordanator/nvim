@@ -17,10 +17,21 @@ vim.api.nvim_create_autocmd({ "User" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect" },
+  pattern = { "Jaq", "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect", "tsplayground" },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
+      set nobuflisted 
+    ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "Jaq" },
+  callback = function()
+    vim.cmd [[
+      nnoremap <silent> <buffer> <m-r> :close<CR>
+      " nnoremap <silent> <buffer> <m-r> <NOP> 
       set nobuflisted 
     ]]
   end,
@@ -123,7 +134,12 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   end,
 })
 
-vim.cmd [[ au FocusGained,BufEnter * :checktime ]]
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd "checktime"
+  end,
+})
 
 -- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 --   callback = function()

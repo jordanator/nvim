@@ -65,7 +65,8 @@ return packer.startup(function(use)
   }
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
-  use "norcalli/nvim-colorizer.lua"
+  -- use "norcalli/nvim-colorizer.lua"
+  use "NvChad/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
   use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
@@ -153,7 +154,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-jdtls"
 
   -- Rust
-  use "simrat39/rust-tools.nvim"
+  use { "christianchiarulli/rust-tools.nvim", branch = "handler_nil_check" }
   use "Saecki/crates.nvim"
 
   -- Typescript TODO: set this up, also add keybinds to ftplugin
@@ -193,7 +194,7 @@ return packer.startup(function(use)
   -- use "nvim-telescope/telescope-ui-select.nvim"
   -- use "nvim-telescope/telescope-file-browser.nvim"
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
-  -- use { "christianchiarulli/JABS.nvim" }
+  use { "christianchiarulli/JABS.nvim" }
   -- use "lunarvim/vim-solidity"
   -- use "tpope/vim-repeat"
   -- use "Shatur/neovim-session-manager"

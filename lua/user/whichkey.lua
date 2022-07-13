@@ -105,7 +105,8 @@ local m_mappings = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  b = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+  -- b = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+  b = { "<cmd>JABSOpen<cr>", "Buffers" },
   -- ["b"] = {
   --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   --   "Buffers",
@@ -263,6 +264,7 @@ local mappings = {
     f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
     F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
     i = { "<cmd>LspInfo<cr>", "Info" },
+    h = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
       "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
