@@ -30,6 +30,7 @@ local setup = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
     -- ["<space>"] = "SPC",
+    ["<leader>"] = "SPC",
     -- ["<cr>"] = "RET",
     -- ["<tab>"] = "TAB",
   },
@@ -90,13 +91,15 @@ local m_opts = {
 local m_mappings = {
   a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
   c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-  t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+  b = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
   m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
   ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
   [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+  l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
   j = { "<cmd>silent BookmarkNext<cr>", "Next" },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
   k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
-  s = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
+  S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
   -- s = {
   --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
   --   "Show",
@@ -106,20 +109,18 @@ local m_mappings = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
-  b = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-  -- b = { "<cmd>JABSOpen<cr>", "Buffers" },
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w<CR>", "Write" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
-  ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
+  -- ["1"] = "which_key_ignore",
+  a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
+  b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  v = { "<cmd>vsplit<cr>", "vsplit" },
+  h = { "<cmd>split<cr>", "split" },
+  w = { "<cmd>w<CR>", "Write" },
+  -- h = { "<cmd>nohlsearch<CR>", "No HL" },
+  q = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
   -- :lua require'lir.float'.toggle()
   -- ["f"] = {
@@ -127,9 +128,9 @@ local mappings = {
   --   "Find files",
   -- },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  -- P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   -- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
-  ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
+  -- ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
 
   B = {
@@ -167,11 +168,11 @@ local mappings = {
 
   s = {
     name = "Session",
-    s = { "<silent><cmd>SaveSession<cr>", "Save" },
-    r = { "<silent><cmd>RestoreSession<cr>", "Restore" },
-    x = { "<silent><cmd>DeleteSession<cr>", "Delete" },
-    f = { "<silent><cmd>Autosession search<cr>", "Find" },
-    d = { "<silent><cmd>Autosession delete<cr>", "Find Delete" },
+    s = { "<cmd>SaveSession<cr>", "Save" },
+    r = { "<cmd>RestoreSession<cr>", "Restore" },
+    x = { "<cmd>DeleteSession<cr>", "Delete" },
+    f = { "<cmd>Autosession search<cr>", "Find" },
+    d = { "<cmd>Autosession delete<cr>", "Find Delete" },
     -- a = { ":SaveSession<cr>", "test" },
     -- a = { ":RestoreSession<cr>", "test" },
     -- a = { ":RestoreSessionFromFile<cr>", "test" },
@@ -208,12 +209,11 @@ local mappings = {
     name = "Find",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    f = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      "Find files",
-    },
-    t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+    f = { "<cmd>Telescope find_files<cr>", "Find files" },
+    t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     h = { "<cmd>Telescope help_tags<cr>", "Help" },
+    H = { "<cmd>Telescope highlights<cr>", "Highlights" },
     i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
     l = { "<cmd>Telescope resume<cr>", "Last Search" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -258,6 +258,7 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
     d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     w = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
@@ -276,6 +277,7 @@ local mappings = {
       "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
       "Prev Diagnostic",
     },
+    v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     o = { "<cmd>SymbolsOutline<cr>", "Outline" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },

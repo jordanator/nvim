@@ -30,19 +30,22 @@ jaq_nvim.setup {
     },
   },
 
-  -- UI settings
-  ui = {
+  behavior = {
+    -- Default type
+    default = "terminal",
+
     -- Start in insert mode
     startinsert = false,
 
-    -- Switch back to current file
-    -- after using Jaq
+    -- Use `wincmd p` on startup
     wincmd = false,
 
-    -- Auto-save the current file
-    -- before executing it
-    autosave = true,
+    -- Auto-save files
+    autosave = false,
+  },
 
+  -- UI settings
+  ui = {
     -- Floating Window / FTerm settings
     float = {
       -- Floating window border (see ':h nvim_open_win')
@@ -78,5 +81,5 @@ jaq_nvim.setup {
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<m-r>", "<cmd>only | Jaq<cr>", opts)
+keymap("n", "<m-r>", ":silent only | Jaq<cr>", opts)
 return M

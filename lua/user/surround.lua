@@ -5,11 +5,16 @@ end
 
 surround.setup {
   keymaps = { -- vim-surround style keymaps
-    insert = "<m-s>",
-    insert_line = "<m-s><m-s>",
-    visual = "<m-s>",
-    delete = "<m-d>",
-    change = "<m-c>",
+    insert = "<C-g>s",
+    insert_line = "<C-g>S",
+    normal = "s",
+    normal_cur = "ss",
+    normal_line = "S",
+    normal_cur_line = "SS",
+    visual = "s",
+    visual_line = "gS",
+    delete = "ds",
+    change = "cs",
   },
   delimiters = {
     pairs = {
@@ -46,15 +51,25 @@ surround.setup {
     },
     aliases = {
       ["a"] = ">", -- Single character aliases apply everywhere
-      ["b"] = ")",
-      ["B"] = "}",
-      ["r"] = "]",
+      ["p"] = ")",
+      ["b"] = "]",
+      ["r"] = "}",
       -- Table aliases only apply for changes/deletions
       ["q"] = { '"', "'", "`" }, -- Any quote character
       ["s"] = { ")", "]", "}", ">", "'", '"', "`" }, -- Any surrounding delimiter
     },
+    invalid_key_behavior = function()
+      vim.notify ("Invalid surround character", vim.log.levels.INFO)
+    end,
   },
   highlight_motion = { -- Highlight before inserting/changing surrounds
     duration = 0,
   },
 }
+
+-- local opts = { noremap = true, silent = true }
+-- local keymap = vim.api.nvim_set_keymap
+
+-- keymap("n", "<leader>'", [[ysiw']], opts)
+
+vim.cmd [[nmap <leader>' siw']]
