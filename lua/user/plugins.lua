@@ -76,7 +76,8 @@ return packer.startup(function(use)
   }
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
-  use { "lvimuser/lsp-inlayhints.nvim", branch = "readme" }
+  use "lvimuser/lsp-inlayhints.nvim"
+  -- use "simrat39/inlay-hints.nvim"
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion
@@ -210,11 +211,12 @@ return packer.startup(function(use)
   use "nacro90/numb.nvim"
   use "andymass/vim-matchup"
   use "folke/zen-mode.nvim"
+  -- use "Pocco81/true-zen.nvim"
   use "karb94/neoscroll.nvim"
   use "junegunn/vim-slash"
 
   -- Motion
-  use "christianchiarulli/hop.nvim"
+  use "phaazon/hop.nvim"
   -- use "jinh0/eyeliner.nvim"
 
   -- Keybinding
